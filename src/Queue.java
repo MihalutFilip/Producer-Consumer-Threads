@@ -4,7 +4,6 @@ public class Queue {
     private PolynomItem[] list;
     private int size;
 
-    // private constructor restricted to this class itself
     public Queue()
     {
         list = new PolynomItem[11];

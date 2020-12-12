@@ -25,6 +25,7 @@ public class Worker extends Thread {
 
     public void run() {
         if(nrOfReaderThreads > threadNumber) {
+	    // Producer - Read from file and add in queue
             int chunk = numberOfPolynomial / nrOfReaderThreads;
             int start = 1 + threadNumber * chunk;
             int end = nrOfReaderThreads - 1 == threadNumber ? numberOfPolynomial : (threadNumber + 1) * chunk;
@@ -72,6 +73,7 @@ public class Worker extends Thread {
 
         }
         else {
+	    // Cosumer - Extract from queue and add in the linked list
             try {
                 while(true) {
                     PolynomItem item = queue.extractFromQueue();
